@@ -183,7 +183,7 @@ const MotionCanvas = () => {
             p.colorMode(p.RGB, 255, 255, 255, 255);
 
             colorClose = p.color(71, 199, 199);
-            colorFar = p.color(71, 199, 199);
+            colorFar = p.color(255, 255, 255);
 
             video = p.createCapture("video", () => {}) as P5CaptureElement;
             video.size(VIDEO_W, VIDEO_H);

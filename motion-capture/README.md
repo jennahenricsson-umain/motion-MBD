@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Motion Capture – Bollspel med ansiktsdetektion
 
-## Getting Started
+Ett litet spel där bollar faller och exploderar när de träffar huvudet. Använder webbkamera och ansiktsdetektion (ml5/MediaPipe) för att spåra upp till 5 ansikten samtidigt.
 
-First, run the development server:
+## Krav
+
+- **Node.js** (version 18 eller senare). Ladda ner från [nodejs.org](https://nodejs.org) om det inte är installerat.
+- **Webbkamera** (för spelet).
+- En modern webbläsare (Chrome, Firefox, Safari, Edge).
+
+## Köra projektet på en ny dator
+
+### 1. Hämta projektet
+
+Om du använder Git:
+
+```bash
+git clone <url-till-repot>
+cd motion-MBD/motion-capture
+```
+
+Om du bara har mapparna: öppna en terminal, gå till projektmappen och sedan in i `motion-capture`:
+
+```bash
+cd sökväg/till/motion-MBD/motion-capture
+```
+
+### 2. Installera bibliotek (dependencies)
+
+Alla nödvändiga paket står i `package.json`. Installera dem med npm:
+
+```bash
+npm install
+```
+
+Detta installerar bland annat:
+
+- **Next.js** – webbramverk
+- **React** – gränssnitt
+- **p5** – ritning och animation
+- **ml5** – ansiktsdetektion (face mesh)
+- **Tailwind CSS** – stilar
+- **TypeScript** – typning
+
+Inga andra steg behövs; `npm install` läser `package.json` och hämtar rätt versioner.
+
+### 3. Starta utvecklingsservern
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Öppna webbläsaren på [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 4. Kamera
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+När sidan laddas kan webbläsaren fråga om kamerabehörighet. Godkänn så att spelet kan detektera ansikten.
 
-## Learn More
+## Övriga kommandon
 
-To learn more about Next.js, take a look at the following resources:
+- `npm run build` – bygg för produktion
+- `npm start` – starta produktionsservern (kör `npm run build` först)
+- `npm run lint` – köra ESLint
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Projektstruktur
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `app/page.tsx` – huvudsida
+- `components/MotionCanvas.tsx` – p5-sketch, kamera, ansiktsdetektion, bollar och explosioner
+- `package.json` – projektegenskaper och lista över alla bibliotek
