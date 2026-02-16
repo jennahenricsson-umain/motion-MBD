@@ -178,10 +178,10 @@ const MotionCanvas = () => {
             if (!canvasRef.current) return;
             p.createCanvas(w, h).parent(canvasRef.current);
             p.frameRate(TARGET_FPS);
-            p.colorMode(p.HSB, 360, 100, 100, 255);
+            p.colorMode(p.RGB, 255, 255, 255, 255);
 
-            colorClose = p.color(180, 64, 78);
-            colorFar = p.color(180, 64, 78);
+            colorClose = p.color(71, 199, 199);
+            colorFar = p.color(71, 199, 199);
 
             video = p.createCapture("video", () => {}) as P5CaptureElement;
             video.size(VIDEO_W, VIDEO_H);
@@ -211,7 +211,7 @@ const MotionCanvas = () => {
           };
 
           p.draw = () => {
-            p.background(205, 74, 53);
+            p.background(35, 93, 134);
             const fit = computeFitRect();
 
             if (!isModelReady) {
@@ -294,17 +294,14 @@ const MotionCanvas = () => {
             p.noStroke();
             for (const b of balls) {
               const [r, g, bl] = BALL_COLORS[b.colorIndex];
-              p.push();
-              p.colorMode(p.RGB);
               p.fill(r, g, bl);
               p.circle(b.x, b.y, b.radius * 2);
-              p.pop();
             }
 
             for (const e of explosions) {
-              p.fill(40, 100, 100, e.alpha);
+              p.fill(255, 165, 0, e.alpha);
               p.circle(e.x, e.y, e.size);
-              p.fill(60, 100, 100, e.alpha * 0.5);
+              p.fill(255, 255, 0, e.alpha * 0.5);
               p.circle(e.x, e.y, e.size * 0.6);
             }
 
