@@ -36,8 +36,8 @@ type P5CaptureElement = p5.Element & {
 
 const VIDEO_W = 640;
 const VIDEO_H = 480;
-const TARGET_FPS = 30;
-const FACE_UPDATE_INTERVAL_MS = 66;
+const TARGET_FPS = 24;
+const FACE_UPDATE_INTERVAL_MS = 100;
 const Z_NEAR = 50;
 const Z_FAR = -10;
 const SMOOTH = 0.15;
@@ -177,6 +177,8 @@ const MotionCanvas = () => {
           p.setup = () => {
             if (!canvasRef.current) return;
             p.createCanvas(w, h).parent(canvasRef.current);
+            p.pixelDensity(1);
+            p.noSmooth();
             p.frameRate(TARGET_FPS);
             p.colorMode(p.RGB, 255, 255, 255, 255);
 
