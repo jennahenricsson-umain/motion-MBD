@@ -12,14 +12,13 @@ const MotionCanvas = dynamic(() => import("../components/MotionCanvas"), {
 
 export default function Home() {
   return (
-    <main className="fixed inset-0 w-screen h-screen overflow-hidden bg-black">
-      <div className="absolute top-10 left-0 w-full z-10 pointer-events-none">
+    <main className="fixed inset-0 w-screen h-screen overflow-hidden">
+      <div className="absolute top-20 left-0 w-full z-10 pointer-events-none">
+      <img src="/prototyp_logo.svg" alt="Prototyp Logo" className="w-70 h-70 mx-auto" />
         <h1 className="text-4xl md:text-6xl font-bold text-white text-center">
-            UMAIN <span className="text-violet-500">JIN</span>
+            
         </h1>
-        <p className="text-gray-400 text-center mt-2">We recognize you</p>
       </div>
-
       <div className="absolute inset-0 w-full h-full">
         <MotionCanvas />
       </div>
